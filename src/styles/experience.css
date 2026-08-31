@@ -1,0 +1,113 @@
+.log {
+  border-top: 1px solid var(--hair-strong);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.log::before {
+  content: '';
+  position: absolute;
+  left: 13rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--hair-strong);
+}
+.log-row {
+  display: grid;
+  grid-template-columns: 11rem 1.5rem 1fr;
+  gap: 1.25rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--hair);
+  opacity: 0;
+  transform: translateY(10px);
+}
+.log-row.in {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+.log-row .when {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  margin: 0;
+}
+.log-row .dotcell {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 0.3rem;
+  position: relative;
+  z-index: 1;
+}
+.log-row .dot {
+  width: 8px;
+  height: 8px;
+  background: var(--muted);
+  transform: rotate(45deg);
+}
+.log-row .dot.active {
+  background: var(--status-active);
+}
+.log-row .dot.progress {
+  background: var(--accent-warm);
+}
+.log-row .dot.done {
+  background: var(--muted);
+}
+.log-row .org {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin: 0 0 0.3rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.log-row .role {
+  font-size: 0.92rem;
+  color: var(--ink);
+  line-height: 1.5;
+  max-width: 58ch;
+  margin: 0;
+}
+.pill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.42rem;
+  border: 1px solid currentColor;
+  margin-left: 0.6rem;
+}
+.pill.active {
+  color: var(--status-active);
+}
+.pill.progress {
+  color: var(--accent-warm);
+}
+.pill.done {
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .log::before,
+  .log-row .dotcell {
+    display: none;
+  }
+  .log-row {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+}

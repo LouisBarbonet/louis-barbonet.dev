@@ -1,0 +1,300 @@
+/* ---------- toast ---------- */
+#toast {
+  position: fixed;
+  top: 44px;
+  left: 50%;
+  transform: translate(-50%, -8px);
+  z-index: 91;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--status-active);
+  color: var(--bg);
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--status-active);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+#toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+.egg-particle {
+  position: fixed;
+  width: 9px;
+  height: 9px;
+  z-index: 90;
+  pointer-events: none;
+  animation: egg-burst 0.9s ease-out forwards;
+}
+@keyframes egg-burst {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx), var(--dy)) rotate(220deg);
+    opacity: 0;
+  }
+}
+
+/* ---------- status bar ---------- */
+.statusbar {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--hair-strong);
+  background: var(--bg-raised);
+}
+.statusbar .frame {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 34px;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.statusbar .right {
+  display: flex;
+  gap: 1.1rem;
+  align-items: center;
+}
+.statusbar #clock {
+  color: var(--accent-warm);
+  font-variant-numeric: tabular-nums;
+}
+.statusbar button {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.statusbar button:hover {
+  color: var(--accent-info);
+}
+
+/* ---------- nav ---------- */
+nav.top {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--hair-strong);
+}
+nav.top .frame {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.brandmark {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.navctrls {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.toggle-group {
+  display: flex;
+  border: 1px solid var(--hair-strong);
+}
+.toggle-group button {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  color: var(--muted);
+  border-left: 1px solid var(--hair-strong);
+}
+.toggle-group button:first-child {
+  border-left: none;
+}
+.toggle-group button[aria-pressed='true'] {
+  background: var(--accent-info);
+  color: var(--bg);
+}
+.toggle-group + .toggle-group {
+  margin-left: 0.75rem;
+}
+.toggle-group button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+/* ---------- persistent dock ---------- */
+.dock {
+  position: fixed;
+  right: 1.1rem;
+  bottom: 1.1rem;
+  z-index: 20;
+  width: 84px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+.dock.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.dock .dock-obj {
+  width: 64px;
+  height: 64px;
+  border: 1px solid var(--hair-strong);
+  background: var(--bg-raised);
+  cursor: pointer;
+}
+.dock .dock-label {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.3;
+}
+@media (max-width: 640px) {
+  .dock {
+    width: 56px;
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
+  .dock .dock-obj {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* ---------- section shell ---------- */
+section.block {
+  border-bottom: 1px solid var(--hair-strong);
+}
+section.block .frame {
+  padding-top: clamp(2.25rem, 5vw, 3.5rem);
+  padding-bottom: clamp(2.25rem, 5vw, 3.5rem);
+}
+.block-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+  flex-wrap: wrap;
+}
+.block-head h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.block-head .tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-info);
+}
+
+/* ---------- section pacing: alternating tone + varied rhythm ---------- */
+#about,
+#experience {
+  background: var(--bg-raised);
+}
+#about .frame {
+  padding-top: clamp(1.75rem, 4vw, 2.75rem);
+  padding-bottom: clamp(1.75rem, 4vw, 2.75rem);
+}
+#projects .frame {
+  padding-top: clamp(3rem, 6vw, 4.5rem);
+  padding-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+#experience .frame {
+  padding-top: clamp(2rem, 4.5vw, 3rem);
+  padding-bottom: clamp(2rem, 4.5vw, 3rem);
+}
+
+/* ---------- shared CTA button ---------- */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 0.85rem 1.3rem;
+  border: 1px solid var(--ink);
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    transform 0.08s ease;
+}
+.cta:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+.cta:active {
+  transform: translateY(1px) !important;
+}
+.cta:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.li-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  border: 1px solid var(--hair-strong);
+  padding: 0.5rem 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.li-link:hover {
+  border-color: var(--accent-info);
+  color: var(--accent-info);
+}
+.li-link svg {
+  width: 14px;
+  height: 14px;
+}

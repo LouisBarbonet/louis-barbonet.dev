@@ -1,0 +1,70 @@
+.about-body p {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  max-width: 62ch;
+  margin: 0 0 1rem;
+  color: var(--ink);
+}
+.about-body strong {
+  font-weight: 600;
+}
+
+.offduty {
+  margin-top: 1.8rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--hair);
+}
+.offduty .olabel {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 0.6rem;
+}
+.offduty .oline {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  max-width: 58ch;
+  margin: 0 0 1.2rem;
+  color: var(--ink);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.chip {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid var(--hair-strong);
+  padding: 0.45rem 0.75rem;
+  color: var(--muted);
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+.chip-run:hover {
+  color: var(--accent-warm);
+  border-color: var(--accent-warm);
+}
+.chip-soccer:hover {
+  color: var(--status-active);
+  border-color: var(--status-active);
+}
+.chip-volley:hover {
+  color: var(--accent-info);
+  border-color: var(--accent-info);
+}
+.chip-pp:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.chip-board:hover {
+  color: var(--accent-warm);
+  border-color: var(--accent-warm);
+}

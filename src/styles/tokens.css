@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'Archivo Black';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/ArchivoBlack-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/IBMPlexSans-Variable.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/JetBrainsMono-Variable.woff2') format('woff2');
+}
+
+:root {
+  /* Bloom -- locked palette (Vapor's lavender-pink blended with Daylight's warmth) */
+  --bg: #F7ECE8;
+  --bg-raised: #EEDFDA;
+  --ink: #3D2A2E;
+  --muted: #9C7A7C;
+  --hair: #EEDCD6;
+  --hair-strong: #A9787C;
+  --accent: #FF6D76;
+  --accent-ink: #FFF3EF;
+  --accent-info: #4EA3C0;
+  --accent-warm: #F3BD55;
+  --status-active: #77C384;
+  --intro-bg: #2F2730;
+
+  --font-display: 'Archivo Black', 'Arial Black', sans-serif;
+  --font-body: 'IBM Plex Sans', -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+}

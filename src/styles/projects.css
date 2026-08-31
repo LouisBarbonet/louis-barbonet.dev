@@ -1,0 +1,177 @@
+.project-card + .project-card {
+  margin-top: 1.6rem;
+}
+.project-card {
+  border: 1px solid var(--hair-strong);
+}
+.project-shot {
+  border-bottom: 1px solid var(--hair-strong);
+  background: var(--bg-raised);
+  line-height: 0;
+}
+.project-shot img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.project-top {
+  padding: 1.6rem 1.6rem 1.4rem;
+  border-bottom: 1px solid var(--hair-strong);
+}
+.project-top .psub {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.6rem;
+}
+.project-top .pname {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  margin: 0 0 0.6rem;
+}
+.project-top .pdesc {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  max-width: 58ch;
+  margin: 0 0 1.1rem;
+  color: var(--ink);
+}
+.project-top .plinks {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.project-top .plinks a {
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 1px;
+}
+.project-top .plinks a:hover {
+  border-color: var(--accent-info);
+  color: var(--accent-info);
+}
+.project-top .plinks a.primary {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.project-top .plinks a.primary:hover {
+  color: var(--accent-warm);
+  border-color: var(--accent-warm);
+}
+.project-top .plinks .flag {
+  color: var(--muted);
+  border: 1px solid var(--hair-strong);
+  padding: 0.25rem 0.5rem;
+}
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--hair-strong);
+}
+.spec-cluster {
+  background: var(--bg);
+  padding: 1.3rem 1.5rem;
+  transition: background 0.15s ease;
+}
+.spec-cluster:hover {
+  background: var(--bg-raised);
+}
+.spec-cluster .clabel {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.7rem;
+}
+.spec-cluster ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.9;
+}
+.spec-cluster .note {
+  margin-top: 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.spec-cluster .note .hint {
+  color: var(--accent-info);
+}
+.spec-cluster .stat {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--status-active);
+  font-variant-numeric: tabular-nums;
+  margin: 0;
+}
+
+/* ---------- stat flip card ---------- */
+.stat-flip {
+  perspective: 800px;
+  cursor: pointer;
+  outline: none;
+  display: inline-block;
+}
+.stat-flip-inner {
+  position: relative;
+  min-height: 2.4rem;
+  min-width: 6rem;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+.stat-flip:hover .stat-flip-inner,
+.stat-flip.flipped .stat-flip-inner,
+.stat-flip:focus-visible .stat-flip-inner {
+  transform: rotateY(180deg);
+}
+.stat-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.stat-back {
+  transform: rotateY(180deg);
+}
+.stat-back .stat {
+  color: var(--accent);
+  font-size: 1.15rem;
+}
+.stat-back .stat-tag {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0.15rem 0 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .stat-flip-inner {
+    transition: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .spec-grid {
+    grid-template-columns: 1fr;
+  }
+}

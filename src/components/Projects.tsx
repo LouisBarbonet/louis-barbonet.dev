@@ -16,7 +16,6 @@ export function Projects() {
       <div className="frame">
         <div className="block-head">
           <h2>{t.projects.heading}</h2>
-          <span className="tag">{t.projects.tag}</span>
         </div>
 
         <div ref={coffee.ref} className={`project-card reveal${coffee.visible ? ' in' : ''}`}>
@@ -62,7 +61,6 @@ export function Projects() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <p className="note">{t.projects.coffee.infraNote}</p>
             </div>
           </div>
         </div>

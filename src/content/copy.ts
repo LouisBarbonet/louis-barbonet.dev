@@ -1,3 +1,5 @@
+import type { VariantKey } from '../three/variantKeys';
+
 export type Lang = 'en' | 'fr';
 
 export interface LogEntry {
@@ -32,7 +34,6 @@ export interface Copy {
   };
   projects: {
     heading: string;
-    tag: string;
     coffee: {
       name: string;
       desc: string;
@@ -44,7 +45,6 @@ export interface Copy {
       deploy: string[];
       infraLabel: string;
       infra: string[];
-      infraNote: string;
     };
     museum: {
       teamLine: string;
@@ -65,15 +65,12 @@ export interface Copy {
   };
   experience: {
     heading: string;
-    tag: string;
     entries: LogEntry[];
   };
   dock: {
-    self: string;
-    idle: string;
-    engaged: string;
     sections: Record<'about' | 'projects' | 'experience', string>;
   };
+  variantLabels: Record<VariantKey, string>;
   footer: {
     eyebrow: string;
     headline: string;
@@ -117,13 +114,12 @@ const en: Copy = {
       { key: 'run', label: 'Half-Marathon' },
       { key: 'soccer', label: 'Soccer' },
       { key: 'volley', label: 'Volleyball' },
-      { key: 'pp', label: 'Ping-Pong (hehe)' },
+      { key: 'pp', label: 'Ping-Pong' },
       { key: 'board', label: 'Board Games' },
     ],
   },
   projects: {
     heading: 'Projects',
-    tag: 'Case studies, not screenshots only',
     coffee: {
       name: 'CoffeeExplorer',
       desc: 'A shared coffee-shop discovery and ratings log, built for daily use and deployed to a self-managed Oracle Cloud instance with an automated pipeline on every push to main.',
@@ -135,7 +131,6 @@ const en: Copy = {
       deploy: ['Docker (dev + prod)', 'GitHub Actions', 'GHCR images'],
       infraLabel: 'Infrastructure',
       infra: ['Oracle Cloud VM', 'Nginx reverse proxy', 'TLS'],
-      infraNote: 'Same free-tier setup this site will run on.',
     },
     museum: {
       teamLine: 'Team "You’re Absolutely Right!" · COMP6721 · Summer 2026',
@@ -152,12 +147,11 @@ const en: Copy = {
         'Test accuracy, fine-tuned ResNet-18. +7.6 points over the best classical model (Gradient Boosting, 90.7%).',
       flipStat: '26/1,500',
       flipTag: 'Misclassified',
-      flipHint: 'Hover the number →',
+      flipHint: 'Psst! Hover the percentage...',
     },
   },
   experience: {
     heading: 'Experience & Education',
-    tag: 'Reverse chronological',
     entries: [
       {
         when: '2022 — Now',
@@ -202,10 +196,17 @@ const en: Copy = {
     ],
   },
   dock: {
-    self: 'Self-portrait (placeholder)',
-    idle: 'Idle',
-    engaged: 'Engaged',
-    sections: { about: 'About', projects: 'Projects', experience: 'Experience' },
+    sections: {
+      about: 'About',
+      projects: 'Projects',
+      experience: 'Experience',
+    },
+  },
+  variantLabels: {
+    stopwatch: 'Stopwatch (placeholder)',
+    soccer: 'Soccer Ball (placeholder)',
+    dice: 'Die (placeholder)',
+    code: 'Code Symbol (placeholder)',
   },
   footer: {
     eyebrow: 'Open to Opportunities',
@@ -250,13 +251,12 @@ const fr: Copy = {
       { key: 'run', label: 'Semi-marathon' },
       { key: 'soccer', label: 'Soccer' },
       { key: 'volley', label: 'Volleyball' },
-      { key: 'pp', label: 'Ping-pong (hehe)' },
+      { key: 'pp', label: 'Ping-pong' },
       { key: 'board', label: 'Jeux de société' },
     ],
   },
   projects: {
     heading: 'Projets',
-    tag: "Études de cas, pas seulement des captures",
     coffee: {
       name: 'CoffeeExplorer',
       desc: "Un carnet de découverte et de notation de cafés à usage partagé, déployé sur une instance Oracle Cloud autogérée avec un pipeline automatisé à chaque envoi sur main.",
@@ -268,7 +268,6 @@ const fr: Copy = {
       deploy: ['Docker (dev + prod)', 'GitHub Actions', 'Images GHCR'],
       infraLabel: 'Infrastructure',
       infra: ['VM Oracle Cloud', 'Proxy inverse Nginx', 'TLS'],
-      infraNote: 'La même offre gratuite qui hébergera ce site.',
     },
     museum: {
       teamLine: 'Équipe « You’re Absolutely Right! » · COMP6721 · Été 2026',
@@ -285,12 +284,11 @@ const fr: Copy = {
         "Précision en test, ResNet-18 affiné. +7,6 points par rapport au meilleur modèle classique (Gradient Boosting, 90,7 %).",
       flipStat: '26/1 500',
       flipTag: 'Mal classées',
-      flipHint: 'Survolez le chiffre →',
+      flipHint: 'Psst! Survolez le pourcentage...',
     },
   },
   experience: {
     heading: 'Expérience et formation',
-    tag: 'Ordre antéchronologique',
     entries: [
       {
         when: "2022 — Aujourd'hui",
@@ -335,10 +333,17 @@ const fr: Copy = {
     ],
   },
   dock: {
-    self: 'Autoportrait (provisoire)',
-    idle: 'Inactif',
-    engaged: 'Actif',
-    sections: { about: 'À propos', projects: 'Projets', experience: 'Expérience' },
+    sections: {
+      about: 'À propos',
+      projects: 'Projets',
+      experience: 'Expérience',
+    },
+  },
+  variantLabels: {
+    stopwatch: 'Chronomètre (provisoire)',
+    soccer: 'Ballon de soccer (provisoire)',
+    dice: 'Dé (provisoire)',
+    code: 'Symbole de code (provisoire)',
   },
   footer: {
     eyebrow: 'Ouvert aux opportunités',

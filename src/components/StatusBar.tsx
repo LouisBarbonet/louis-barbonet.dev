@@ -11,11 +11,7 @@ function formatMontreal(date: Date): string {
   return `MTL ${fmt.format(date)}`;
 }
 
-interface StatusBarProps {
-  onReplayIntro: () => void;
-}
-
-export function StatusBar({ onReplayIntro }: StatusBarProps) {
+export function StatusBar() {
   const [clock, setClock] = useState(() => formatMontreal(new Date()));
 
   useEffect(() => {
@@ -26,13 +22,7 @@ export function StatusBar({ onReplayIntro }: StatusBarProps) {
   return (
     <div className="statusbar">
       <div className="frame">
-        <span>Bloom · Archivo / Plex · Locked</span>
-        <span className="right">
-          <span id="clock">{clock}</span>
-          <button type="button" onClick={onReplayIntro}>
-            Replay Intro
-          </button>
-        </span>
+        <span id="clock">{clock}</span>
       </div>
     </div>
   );

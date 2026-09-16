@@ -54,36 +54,15 @@
 }
 .statusbar .frame {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   height: 34px;
   gap: 1rem;
   flex-wrap: wrap;
 }
-.statusbar .right {
-  display: flex;
-  gap: 1.1rem;
-  align-items: center;
-}
 .statusbar #clock {
   color: var(--accent-warm);
   font-variant-numeric: tabular-nums;
-}
-.statusbar button {
-  font-family: var(--font-mono);
-  font-size: 0.66rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: transparent;
-  border: none;
-  color: var(--muted);
-  cursor: pointer;
-  padding: 0;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.statusbar button:hover {
-  color: var(--accent-info);
 }
 
 /* ---------- nav ---------- */
@@ -176,12 +155,11 @@ nav.top .frame {
 }
 .dock .dock-label {
   font-family: var(--font-mono);
-  font-size: 0.5rem;
-  letter-spacing: 0.06em;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
   text-align: center;
-  line-height: 1.3;
 }
 @media (max-width: 640px) {
   .dock {
@@ -192,6 +170,9 @@ nav.top .frame {
   .dock .dock-obj {
     width: 44px;
     height: 44px;
+  }
+  .dock .dock-label {
+    font-size: 0.56rem;
   }
 }
 
@@ -219,14 +200,6 @@ section.block .frame {
   letter-spacing: -0.01em;
   margin: 0;
 }
-.block-head .tag {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent-info);
-}
-
 /* ---------- section pacing: alternating tone + varied rhythm ---------- */
 #about,
 #experience {

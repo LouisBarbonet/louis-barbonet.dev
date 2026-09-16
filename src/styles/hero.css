@@ -60,23 +60,16 @@
 }
 .hero-object .obj-label {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  margin: 0;
   font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
-  background: var(--bg-raised);
-  border-top: 1px solid var(--hair-strong);
-  padding: 0.5rem 0.7rem;
-  display: flex;
-  justify-content: space-between;
-}
-.hero-object .obj-label .state {
-  color: var(--accent);
-  font-weight: 700;
+  pointer-events: none;
 }
 
 @media (max-width: 900px) {

@@ -30,7 +30,6 @@ export function Experience() {
       <div className="frame">
         <div className="block-head">
           <h2>{t.experience.heading}</h2>
-          <span className="tag">{t.experience.tag}</span>
         </div>
         <ol className="log">
           {t.experience.entries.map((entry) => (

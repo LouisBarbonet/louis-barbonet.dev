@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { LangProvider } from './context/LangContext';
 import { MotionProvider } from './context/MotionContext';
 import { ToastProvider } from './context/ToastContext';
+import { CompanionVariantProvider } from './context/CompanionVariantContext';
 import { StatusBar } from './components/StatusBar';
 import { Nav } from './components/Nav';
 import { Hero } from './components/Hero';
@@ -26,15 +27,14 @@ function ConsoleEasterEgg() {
 }
 
 function Page() {
-  const [introRunId, setIntroRunId] = useState(0);
   const scrollVelocityRef = useScrollVelocity();
 
   return (
     <>
-      <IntroOverlay key={introRunId} />
+      <IntroOverlay />
       <ConsoleEasterEgg />
       <EasterEgg />
-      <StatusBar onReplayIntro={() => setIntroRunId((n) => n + 1)} />
+      <StatusBar />
       <Nav />
       <Hero scrollVelocityRef={scrollVelocityRef} />
       <About />
@@ -51,7 +51,9 @@ export function App() {
     <LangProvider>
       <MotionProvider>
         <ToastProvider>
-          <Page />
+          <CompanionVariantProvider>
+            <Page />
+          </CompanionVariantProvider>
         </ToastProvider>
       </MotionProvider>
     </LangProvider>

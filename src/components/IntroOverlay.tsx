@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLang } from '../context/LangContext';
 import { useMotion } from '../context/MotionContext';
 import { CompanionObject } from './LazyCompanionObject';
+import { useCompanionVariant } from '../context/CompanionVariantContext';
 
 /**
  * First-visit (or replayed) loading gate. Remount this component (give it a
@@ -11,6 +12,7 @@ import { CompanionObject } from './LazyCompanionObject';
 export function IntroOverlay() {
   const { t } = useLang();
   const { motionOn } = useMotion();
+  const { variant } = useCompanionVariant();
   const [gone, setGone] = useState(false);
   const [quoteIndex, setQuoteIndex] = useState(0);
   const [barFilled, setBarFilled] = useState(false);
@@ -49,7 +51,7 @@ export function IntroOverlay() {
   return (
     <div id="intro" className={gone ? 'gone' : ''} onClick={dismiss}>
       <div className="intro-obj">
-        <CompanionObject mode="auto-pulse" />
+        <CompanionObject mode="auto-pulse" variant={variant} />
       </div>
       <p className="intro-text">{t.intro.quotes[quoteIndex]}</p>
       <div className="intro-bar">

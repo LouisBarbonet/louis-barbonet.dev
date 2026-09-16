@@ -1,9 +1,10 @@
-import { useState, type RefObject } from 'react';
+import type { RefObject } from 'react';
 import { useLang } from '../context/LangContext';
 import { CompanionObject } from './LazyCompanionObject';
 import { MagneticCta } from './MagneticCta';
 import { CONTACT_EMAIL } from '../content/copy';
 import { useCopyEmail } from '../hooks/useCopyEmail';
+import { useCompanionVariant } from '../context/CompanionVariantContext';
 
 interface HeroProps {
   scrollVelocityRef: RefObject<number>;
@@ -11,8 +12,8 @@ interface HeroProps {
 
 export function Hero({ scrollVelocityRef }: HeroProps) {
   const { t } = useLang();
-  const [engaged, setEngaged] = useState(false);
   const copyEmail = useCopyEmail();
+  const { variant, cycle } = useCompanionVariant();
 
   return (
     <header className="hero" id="hero">
@@ -35,13 +36,11 @@ export function Hero({ scrollVelocityRef }: HeroProps) {
         <div className="hero-object">
           <CompanionObject
             mode="interactive"
+            variant={variant}
             scrollVelocityRef={scrollVelocityRef}
-            onEngageChange={setEngaged}
+            onRequestCycle={cycle}
           />
-          <div className="obj-label">
-            <span>{t.dock.self}</span>
-            <span className="state">{engaged ? t.dock.engaged.toUpperCase() : t.dock.idle.toUpperCase()}</span>
-          </div>
+          <p className="obj-label">{t.variantLabels[variant]}</p>
         </div>
       </div>
     </header>
